@@ -23,7 +23,7 @@ public class GraphPlot {
 	public void graphPoints(Graphics g) {
 		g.setColor(colour); // Set Point Color
 		
-		double xFactorDilation = (double) width / (getDomainMaximum();
+		double xFactorDilation = (double) width / (getDomainMaximum() - getDomainMinimum());
 		double yFactorDilation = (double) height / getRangeMaximum();
 		
 		for (int i = 0; i < points.size(); i++) {
@@ -78,6 +78,9 @@ public class GraphPlot {
 		}
 		return max; // Return the maximum y-value
 	}
+
+	public double getRangeMinimum() {
+		double min = points.get(0).getY();
 	
 	public double getDomainMaximum() {
 		double max = points.get(0).getX(); // Initialize the maximum value with the x-value of the first point
@@ -91,5 +94,14 @@ public class GraphPlot {
 		return max; // Return the maximum x-value
 	}
 	
-	public double 
+	public double getDomainMinimum() { // same as getDomainMaximum but comparing with less then to aquire minimum
+		double min = points.get(0).getx();
+
+		for (int i = 0; i < points.size() - 1; i++) {
+			if (points.get(i).getX() < min {
+				max = points.get(i).getX();
+			}
+		}
+		return min;
+	}
 }
